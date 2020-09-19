@@ -1,8 +1,11 @@
 package seedu.itlogger;
 
+import java.text.ParseException;
+
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.Interface.*;
 import static seedu.itlogger.KeyWord.*;
+import static seedu.itlogger.Parser.*;
 
 public class ITLogger {
     /**
@@ -11,24 +14,31 @@ public class ITLogger {
     public static void main(String[] args) {
 
         IssueList issueList = new IssueList();
-        Parser parser = new Parser();
 
         printLogo();
         askName();
         String userName = getInput();
         greeter(userName);
 
-        while(true){
+        while(true) {
 
             ProgramOpening();
             String input = getInput();
-
             //todo -> build PARSER
 
-            String placeHolder = "";
-            switch(KeyWord.valueOf(placeHolder)){
+            //String placeHolder = "";
+            switch(parseKeyWord(input)){
                 case ADD: // Jian Cheng
                     // todo -> add Defect
+                    try {
+                        Defect newIssue = new Defect(parseTitle(input), parseStatus(input),
+                                            parseSeverity(input), parseDeadline(input), parseOwner(input));
+                        //System.out.println(test.toString());
+                        issueList.addIssue(newIssue);
+                    }catch(ParseException e){
+                        System.out.println(e);
+                    }
+
                     break;
 
                 case VIEW: // Shi Jie
