@@ -26,7 +26,7 @@ public class ItLogger {
 
         printLogo();
         askName();
-        String userName="";
+        String userName = "";
         if (hasNextLine()) {
             userName = getInput();
         }
