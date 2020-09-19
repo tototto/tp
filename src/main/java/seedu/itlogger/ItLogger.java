@@ -3,6 +3,7 @@ package seedu.itlogger;
 import java.text.ParseException;
 
 import static seedu.itlogger.InputHandler.getInput;
+import static seedu.itlogger.InputHandler.hasNextLine;
 import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.printLogo;
 import static seedu.itlogger.Interface.askName;
@@ -25,13 +26,19 @@ public class ItLogger {
 
         printLogo();
         askName();
-        String userName = getInput();
+        String userName="";
+        if (hasNextLine()) {
+            userName = getInput();
+        }
         greeter(userName);
 
         while (true) {
 
             programOpening();
-            String input = getInput();
+            String input = "";
+            if (hasNextLine()) {
+                input = getInput();
+            }
             //todo -> build PARSER
 
             //String placeHolder = "";

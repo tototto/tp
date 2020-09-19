@@ -8,4 +8,8 @@ public class InputHandler {
     public static String getInput() {
         return inputStream.nextLine();
     }
+
+    public static boolean hasNextLine() {
+        return inputStream.hasNextLine();
+    }
 }
