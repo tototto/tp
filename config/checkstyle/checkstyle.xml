@@ -13,6 +13,7 @@
  -->
 
 <module name = "Checker">
+
     <property name="charset" value="UTF-8"/>
 
     <property name="severity" value="error"/>
@@ -28,7 +29,10 @@
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
-
+    <!-- Suppression file -->
+    <module name="SuppressionFilter">
+        <property name="file" value="${config_loc}/checkstyle-suppressions.xml"/>
+    </module>
     <module name="TreeWalker">
         <module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">

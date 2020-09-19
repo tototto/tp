@@ -36,11 +36,15 @@ shadowJar {
     archiveBaseName = "itlogger"
     archiveClassifier = null
 }
-
+/*
 checkstyle {
     toolVersion = '8.23'
 }
 
+ */
+checkstyle {
+    configDir = file("$rootProject.projectDir/etc/checkstyle")
+}
 run{
     standardInput = System.in
 }
