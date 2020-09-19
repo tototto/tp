@@ -20,8 +20,14 @@ public class Parser {
      * @param fullInput -> user's full command
      * @return keyword provided by user and in KeyWord enum
      */
-    public static KeyWord parseKeyWord(String fullInput) {
-        String possibleKeyWord = fullInput.split(" ")[0];
+    public static KeyWord parseKeyWord(String fullInput) throws IllegalArgumentException {
+        String possibleKeyWord;
+        if (fullInput.contains(" ")) {
+            possibleKeyWord = fullInput.split(" ")[0];
+        } else {
+            possibleKeyWord = fullInput;
+        }
+
         return KeyWord.valueOf(possibleKeyWord);
     }
 

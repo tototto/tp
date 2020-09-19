@@ -39,10 +39,17 @@ public class ItLogger {
             if (hasNextLine()) {
                 input = getInput();
             }
+            KeyWord command = KeyWord.OTHERS;
+
+            try {
+                command = parseKeyWord(input);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+            }
             //todo -> build PARSER
 
             //String placeHolder = "";
-            switch (parseKeyWord(input)) {
+            switch (command) {
             case ADD: // Jian Cheng
                 // todo -> add Defect
                 try {
@@ -69,6 +76,8 @@ public class ItLogger {
                 break;
 
             default:
+                System.out.println("Unknown KeyWord, please try again!");
+                break;
             }
 
         }

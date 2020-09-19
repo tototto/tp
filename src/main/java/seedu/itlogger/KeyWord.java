@@ -4,5 +4,6 @@ public enum KeyWord {
     ADD,
     VIEW,
     DELETE,
-    LIST
+    LIST,
+    OTHERS
 }

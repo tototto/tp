@@ -4,13 +4,13 @@ import java.util.Vector;
 
 public class IssueList {
 
-    private Vector issueList;
+    private Vector<Defect> issueList;
 
     public IssueList() {
-        issueList = new Vector();
+        issueList = new Vector<>();
     }
 
-    public Vector getIssue() {
+    public Vector<Defect> getIssue() {
         return issueList;
     }
 
