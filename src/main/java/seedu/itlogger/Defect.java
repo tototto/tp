@@ -31,9 +31,9 @@ public class Defect {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd yyyy");
         return "Title: " + title + System.lineSeparator()
                 + "Status: " + status + System.lineSeparator()
-                + "Severity: Level " + severity+System.lineSeparator()
-                + "Date Raised: " + dateFormat.format(dateRaised)+System.lineSeparator()
-                + "Deadline: " + dateFormat.format(deadline)+System.lineSeparator()
+                + "Severity: Level " + severity + System.lineSeparator()
+                + "Date Raised: " + dateFormat.format(dateRaised) + System.lineSeparator()
+                + "Deadline: " + dateFormat.format(deadline) + System.lineSeparator()
                 + "Owner: " + owner;
     }
 

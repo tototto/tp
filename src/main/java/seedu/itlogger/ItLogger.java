@@ -6,7 +6,7 @@ import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.printLogo;
 import static seedu.itlogger.Interface.askName;
-import static seedu.itlogger.Interface.ProgramOpening;
+import static seedu.itlogger.Interface.programOpening;
 import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
 import static seedu.itlogger.Parser.parseKeyWord;
@@ -30,7 +30,7 @@ public class ItLogger {
 
         while (true) {
 
-            ProgramOpening();
+            programOpening();
             String input = getInput();
             //todo -> build PARSER
 

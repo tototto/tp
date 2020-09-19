@@ -23,7 +23,7 @@ public class Interface {
         System.out.println(GREEETING_MSG + name);
     }
 
-    public static void ProgramOpening() {
+    public static void programOpening() {
         System.out.println(PROGRAM_OPENING);
     }
 
