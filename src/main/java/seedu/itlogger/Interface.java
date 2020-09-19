@@ -1,7 +1,7 @@
 package seedu.itlogger;
 
 public class Interface {
-    private static String LOGO =  " ____        _        \n"
+    private static String LOGO =  " ____        _\n"
                                 + "|  _ \\ _   _| | _____ \n"
                                 + "| | | | | | | |/ / _ \\\n"
                                 + "| |_| | |_| |   <  __/\n"
