@@ -10,3 +10,4 @@ class ITLoggerTest {
         assertTrue(true);
     }
 }
+
