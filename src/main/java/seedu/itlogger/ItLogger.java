@@ -23,7 +23,6 @@ public class ItLogger {
     public static void main(String[] args) {
 
         IssueList issueList = new IssueList();
-        boolean keepRun = true;
 
         printLogo();
         askName();
@@ -32,7 +31,7 @@ public class ItLogger {
             userName = getInput();
         }
         greeter(userName);
-
+        boolean keepRun = true;
         while (keepRun) {
 
             programOpening();
@@ -77,7 +76,8 @@ public class ItLogger {
                 break;
 
             case EXIT:
-                keepRun=false;
+                keepRun = false;
+                break;
             default:
                 System.out.println("Unknown KeyWord, please try again!");
                 break;
