@@ -4,21 +4,21 @@ import java.util.Vector;
 
 public class IssueList {
 
-    private Vector issueList;
+    private Vector<Defect> issueList;
 
-    public IssueList(){
-        issueList = new Vector();
+    public IssueList() {
+        issueList = new Vector<>();
     }
 
-    public Vector getIssue(){
+    public Vector<Defect> getIssue() {
         return issueList;
     }
 
-    public void addIssue(Defect defect){
+    public void addIssue(Defect defect) {
         issueList.add(defect);
     }
 
-    public void deleteIssue(int index){
+    public void deleteIssue(int index) {
         issueList.remove(index);
     }
 }
