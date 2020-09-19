@@ -5,5 +5,6 @@ public enum KeyWord {
     VIEW,
     DELETE,
     LIST,
+    EXIT,
     OTHERS
 }

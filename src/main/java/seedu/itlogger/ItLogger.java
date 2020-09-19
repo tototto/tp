@@ -23,6 +23,7 @@ public class ItLogger {
     public static void main(String[] args) {
 
         IssueList issueList = new IssueList();
+        boolean keepRun = true;
 
         printLogo();
         askName();
@@ -32,7 +33,7 @@ public class ItLogger {
         }
         greeter(userName);
 
-        while (true) {
+        while (keepRun) {
 
             programOpening();
             String input = "";
@@ -75,6 +76,8 @@ public class ItLogger {
                 // todo -> list ALL avaliable Defect in Issue List
                 break;
 
+            case EXIT:
+                keepRun=false;
             default:
                 System.out.println("Unknown KeyWord, please try again!");
                 break;

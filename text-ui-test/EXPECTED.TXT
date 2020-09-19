@@ -7,4 +7,4 @@ Hello from
 
 What is your name?
 Hello James Gosling
-hat would you like to do?
+what would you like to do?
