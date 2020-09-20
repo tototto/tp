@@ -65,6 +65,11 @@ public class ItLogger {
 
             case VIEW: // Shi Jie
                 // todo -> view ONE Defect with INDEX NUMBER
+                try {
+                    System.out.println(issueList.getDefect(parseIndex(input)).toString());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case DELETE: // Jang
