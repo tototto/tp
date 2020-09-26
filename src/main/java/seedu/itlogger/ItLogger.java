@@ -77,6 +77,11 @@ public class ItLogger {
 
             case DELETE: // Jang
                 // todo -> delete ONE Defect using INDEX NUMBER
+                try {
+                    issueList.deleteIssue(parseIndex(input));
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case LIST:  // Jun Wen
