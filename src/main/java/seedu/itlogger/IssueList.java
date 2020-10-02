@@ -26,8 +26,7 @@ public class IssueList {
         return issueList.get(index);
     }
 
-    public int getSize()
-    {
+    public int getSize() {
         return issueList.size();
     }
 }
