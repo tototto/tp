@@ -1,12 +1,15 @@
 package seedu.itlogger;
 
 import java.text.ParseException;
+import java.util.Vector;
 
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
+import static seedu.itlogger.Interface.askName;
+import static seedu.itlogger.Interface.displayIssues;
+import static seedu.itlogger.Interface.emptyErrorMsg;
 import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.printLogo;
-import static seedu.itlogger.Interface.askName;
 import static seedu.itlogger.Interface.programOpening;
 import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
@@ -42,7 +45,7 @@ public class ItLogger {
             KeyWord command = KeyWord.OTHERS;
 
             try {
-                command = parseKeyWord(input);
+                command = parseKeyWord(input.toUpperCase());
             } catch (IllegalArgumentException e) {
                 System.out.println(e);
             }
@@ -65,14 +68,29 @@ public class ItLogger {
 
             case VIEW: // Shi Jie
                 // todo -> view ONE Defect with INDEX NUMBER
+                try {
+                    System.out.println(issueList.getDefect(parseIndex(input)).toString());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case DELETE: // Jang
                 // todo -> delete ONE Defect using INDEX NUMBER
+                try {
+                    issueList.deleteIssue(parseIndex(input));
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case LIST:  // Jun Wen
                 // todo -> list ALL avaliable Defect in Issue List
+                Vector toBeDisplayed = issueList.getIssue();
+                displayIssues(toBeDisplayed);
+                if (toBeDisplayed.size() == 0) {
+                    emptyErrorMsg();
+                }
                 break;
 
             case EXIT:

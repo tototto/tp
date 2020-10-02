@@ -21,4 +21,8 @@ public class IssueList {
     public void deleteIssue(int index) {
         issueList.remove(index);
     }
+
+    public Defect getDefect(int index) {
+        return issueList.get(index);
+    }
 }
