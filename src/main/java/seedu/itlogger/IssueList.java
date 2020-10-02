@@ -25,4 +25,6 @@ public class IssueList {
     public Defect getDefect(int index) {
         return issueList.get(index);
     }
+
+    public int getSize(){return issueList.size();}
 }
