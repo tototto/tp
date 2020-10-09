@@ -2,21 +2,25 @@ package seedu.itlogger;
 
 import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class DeleteFunctionTest {
-
     @Test
     public void deleteFunctionTest() {
         IssueList issueList = new IssueList();
         try {
-            issueList.addIssue(new Defect("cannot launch", "new", 1, new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2020"), "Jack"));
-            issueList.addIssue(new Defect("cannot login", "new", 1, new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2020"), "Jack"));
-            issueList.addIssue(new Defect("cannot exit", "new", 1, new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2020"), "Jack"));
+            issueList.addIssue(new Defect("cannot launch", "new", 1,
+                    new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2020"),
+                    "Jack"));
+            issueList.addIssue(new Defect("cannot login", "new", 1,
+                    new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2020"),
+                    "Jack"));
+            issueList.addIssue(new Defect("cannot exit", "new", 1,
+                    new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2020"),
+                    "Jack"));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -36,9 +40,6 @@ public class DeleteFunctionTest {
         //checks number of tasks left.
         assertEquals(0, issueList.getSize());
 
-
     }
-
-
 }
 
