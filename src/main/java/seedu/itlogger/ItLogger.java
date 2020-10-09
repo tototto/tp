@@ -96,6 +96,7 @@ public class ItLogger {
             case EXIT:
                 keepRun = false;
                 break;
+
             default:
                 System.out.println("Unknown KeyWord, please try again!");
                 break;
