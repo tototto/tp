@@ -1,4 +1,18 @@
-Oct 10, 2020 11:45:09 PM seedu.itlogger.InputHandler <init>
+Oct 11, 2020 12:12:42 AM seedu.itlogger.InputHandler <init>
 INFO: created InputHandler object successfully
-Oct 10, 2020 11:45:09 PM seedu.itlogger.InputHandler hasNextLine
+Oct 11, 2020 12:12:42 AM seedu.itlogger.InputHandler hasNextLine
 INFO: checking if have inputStream has next line
+Oct 11, 2020 12:12:49 AM seedu.itlogger.InputHandler getInput
+INFO: getting user input
+Oct 11, 2020 12:12:49 AM seedu.itlogger.InputHandler hasNextLine
+INFO: checking if have inputStream has next line
+Oct 11, 2020 12:12:59 AM seedu.itlogger.InputHandler getInput
+INFO: getting user input
+Oct 11, 2020 12:12:59 AM seedu.itlogger.InputHandler hasNextLine
+INFO: checking if have inputStream has next line
+Oct 11, 2020 12:13:36 AM seedu.itlogger.InputHandler getInput
+INFO: getting user input
+Oct 11, 2020 12:13:36 AM seedu.itlogger.InputHandler hasNextLine
+INFO: checking if have inputStream has next line
+Oct 11, 2020 12:13:44 AM seedu.itlogger.InputHandler getInput
+INFO: getting user input
