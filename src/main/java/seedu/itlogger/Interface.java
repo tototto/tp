@@ -35,7 +35,7 @@ public class Interface {
         Iterator iter = toBeDisplayed.iterator();
         while (iter.hasNext()) {
             Defect issue = (Defect) iter.next();
-            System.out.println(issue);
+            System.out.println(issue + System.lineSeparator());
         }
     }
 
