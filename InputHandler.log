@@ -1,0 +1,4 @@
+Oct 10, 2020 11:45:09 PM seedu.itlogger.InputHandler <init>
+INFO: created InputHandler object successfully
+Oct 10, 2020 11:45:09 PM seedu.itlogger.InputHandler hasNextLine
+INFO: checking if have inputStream has next line

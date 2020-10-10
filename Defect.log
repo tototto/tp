@@ -1,0 +1,8 @@
+Oct 10, 2020 11:21:44 PM seedu.itlogger.Defect <init>
+INFO: created defect successfully
+Oct 10, 2020 11:22:01 PM seedu.itlogger.Defect toString
+INFO: printing object to string
+Oct 10, 2020 11:41:02 PM seedu.itlogger.Defect <init>
+INFO: created defect Object successfully
+Oct 10, 2020 11:41:05 PM seedu.itlogger.Defect toString
+INFO: printing object to string

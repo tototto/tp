@@ -14,6 +14,7 @@ public class Interface {
     private static String GREEETING_MSG = "Hello ";
     private static String PROGRAM_OPENING = "What would you like to do?";
     private static String EMPTY_ERROR_MSG = "There are no items now";
+    private static String KEYWORD_ISSUE = "Keyword does not exists";
 
     public static void printLogo() {
         System.out.println(LOGO);
@@ -29,6 +30,10 @@ public class Interface {
 
     public static void programOpening() {
         System.out.println(PROGRAM_OPENING);
+    }
+
+    public static void keyWordIssue() {
+        System.out.println(KEYWORD_ISSUE);
     }
 
     public static void displayIssues(Vector toBeDisplayed) {
