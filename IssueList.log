@@ -1,6 +1,0 @@
-Oct 11, 2020 12:12:42 AM seedu.itlogger.IssueList <init>
-INFO: created IssueList Object successfully
-Oct 11, 2020 12:12:59 AM seedu.itlogger.IssueList addIssue
-INFO: adding an issue to issueList...
-Oct 11, 2020 12:13:36 AM seedu.itlogger.IssueList getIssue
-INFO: fetching all issues from issueList...
