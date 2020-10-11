@@ -6,11 +6,16 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+
+import java.util.Locale;
+import java.util.regex.Pattern;
+
 
 /**
  * This Parser Class handles the String input.
@@ -130,7 +135,7 @@ public class Parser {
         String deadlineStartNotation = "dl/";
         String deadlineEndNotation = " o/";
         String deadline = parseInputElement(fullInput,deadlineStartNotation, deadlineEndNotation);
-        return new SimpleDateFormat("dd-MM-yyyy").parse(deadline);
+        return new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).parse(deadline);
     }
 
     /**
