@@ -1,6 +1,7 @@
 package seedu.itlogger;
 
 import seedu.itlogger.exception.EmptyListException;
+import seedu.itlogger.exception.ItLoggerException;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -113,6 +114,8 @@ public class ItLogger {
                 // todo -> view ONE Defect with INDEX NUMBER
                 try {
                     System.out.println(issueList.getDefect(parseIndex(input)).toString());
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Please check the index value and also the correct format: VIEW /index. Eg:VIEW /1");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
