@@ -15,8 +15,8 @@ public class ParserTest {
         assertEquals(Parser.parseKeyWord(testText),KeyWord.ADD);
         assertEquals(Parser.parseStatus(testText),"New");
         assertEquals(Parser.parseTitle(testText),"Test");
-        assertEquals(Parser.parseSeverity(testText),1);
         try {
+            assertEquals(Parser.parseSeverity(testText),1);
             assertEquals(Parser.parseDeadline(testText), new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2020"));
         } catch (Exception e) {
             System.out.println(e);
@@ -28,13 +28,13 @@ public class ParserTest {
     public void viewKeyWordTest() {
         String testText = "VIEW v/10";
         assertEquals(Parser.parseKeyWord(testText),KeyWord.VIEW);
-        assertEquals(Parser.parseIndex(testText),10);
+        assertEquals(Parser.parseIndex(testText,10),10);
     }
 
     @Test
     public void deleteKeyWordTest() {
         String testText = "DELETE d/11";
         assertEquals(Parser.parseKeyWord(testText),KeyWord.DELETE);
-        assertEquals(Parser.parseIndex(testText),11);
+        assertEquals(Parser.parseIndex(testText,11),11);
     }
 }

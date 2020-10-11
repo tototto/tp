@@ -14,11 +14,12 @@ import java.util.logging.SimpleFormatter;
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
 import static seedu.itlogger.Interface.askName;
+import static seedu.itlogger.Interface.printLogo;
+import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.displayIssues;
 import static seedu.itlogger.Interface.emptyErrorMsg;
-import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.keyWordIssue;
-import static seedu.itlogger.Interface.printLogo;
+import static seedu.itlogger.Interface.printErrorMessageToUser;
 import static seedu.itlogger.Interface.programOpening;
 import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
@@ -98,13 +99,16 @@ public class ItLogger {
             switch (command) {
             case ADD: // Jian Cheng
                 // todo -> add Defect
+                logger.info("Performing adding operation for ItLogger, add a new defect...");
                 try {
                     Defect newIssue = new Defect(parseTitle(input), parseStatus(input),
                                         parseSeverity(input), parseDeadline(input), parseOwner(input));
                     //System.out.println(test.toString());
+                    assert newIssue != null : "Issue in creating new issue";
                     issueList.addIssue(newIssue);
                 } catch (ParseException e) {
-                    System.out.println(e);
+                    printErrorMessageToUser(e);
+                    logger.log(Level.WARNING, "Issue in parsing command: " + e.getMessage(), e);
                 }
 
                 break;
@@ -112,7 +116,7 @@ public class ItLogger {
             case VIEW: // Shi Jie
                 // todo -> view ONE Defect with INDEX NUMBER
                 try {
-                    System.out.println(issueList.getDefect(parseIndex(input)).toString());
+                    System.out.println(issueList.getDefect(parseIndex(input,issueList.getSize())).toString());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -121,7 +125,7 @@ public class ItLogger {
             case DELETE: // Jang
                 // todo -> delete ONE Defect using INDEX NUMBER
                 try {
-                    issueList.deleteIssue(parseIndex(input));
+                    issueList.deleteIssue(parseIndex(input,issueList.getSize()));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
