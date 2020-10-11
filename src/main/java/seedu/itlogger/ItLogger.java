@@ -1,7 +1,15 @@
 package seedu.itlogger;
 
+import seedu.itlogger.exception.EmptyListException;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Vector;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
@@ -9,6 +17,7 @@ import static seedu.itlogger.Interface.askName;
 import static seedu.itlogger.Interface.displayIssues;
 import static seedu.itlogger.Interface.emptyErrorMsg;
 import static seedu.itlogger.Interface.greeter;
+import static seedu.itlogger.Interface.keyWordIssue;
 import static seedu.itlogger.Interface.printLogo;
 import static seedu.itlogger.Interface.programOpening;
 import static seedu.itlogger.Parser.parseDeadline;
@@ -20,38 +29,72 @@ import static seedu.itlogger.Parser.parseStatus;
 import static seedu.itlogger.Parser.parseTitle;
 
 public class ItLogger {
+
+    /**.
+     * Logger for Main Class
+     */
+
+    private static final Logger logger = Logger.getLogger(ItLogger.class.getName());
+
     /**
      * Main entry-point for the java.duke.Duke application.
      */
+
     public static void main(String[] args) {
 
+        // Logger setup:
+        try {
+            Handler fh = new FileHandler("ItLogger.log", true);
+            fh.setFormatter(new SimpleFormatter());
+            logger.addHandler(fh);
+            logger.setLevel(Level.FINE);
+        } catch (IOException e) {
+            System.out.println("Issue creating Log file");
+        }
+
+        // Instantiating InputHandler only for logging purpose
+        InputHandler inputHandler = new InputHandler();
+
+        // Program starting point:
         IssueList issueList = new IssueList();
+        assert issueList != null : "issueList should have been created";
+        logger.info("Creating ITLogger issue list...");
 
         printLogo();
         askName();
         String userName = "";
         if (hasNextLine()) {
+            logger.info("Getting username from user...");
             userName = getInput();
+            logger.fine("completed the obtaining of username...");
+            assert userName != "" : "username should have been captured. Should not be empty";
+            assert userName != null : "username should have been captured. Should not be null";
         }
         greeter(userName);
         boolean keepRun = true;
         while (keepRun) {
-
+            logger.info("Beginning program run...");
             programOpening();
             String input = "";
             if (hasNextLine()) {
+                logger.info("getting instruction for program...");
                 input = getInput();
+                logger.info("finished getting instruction for program...");
+                assert input != "" : "input should have been captured. Should not be empty";
             }
             KeyWord command = KeyWord.OTHERS;
 
             try {
                 command = parseKeyWord(input.toUpperCase());
-            } catch (IllegalArgumentException e) {
-                System.out.println(e);
-            }
-            //todo -> build PARSER
+                logger.config("updated config for ItLogger command");
+                assert command != KeyWord.OTHERS : "proper keyword should be captured";
 
-            //String placeHolder = "";
+            } catch (IllegalArgumentException e) {
+                keyWordIssue();
+                logger.log(Level.WARNING, "Non-existent keyword was captured! error is: " + e.getMessage(), e);
+            }
+
+            //todo -> build PARSER
             switch (command) {
             case ADD: // Jian Cheng
                 // todo -> add Defect
@@ -86,21 +129,38 @@ public class ItLogger {
 
             case LIST:  // Jun Wen
                 // todo -> list ALL avaliable Defect in Issue List
-                Vector toBeDisplayed = issueList.getIssue();
-                displayIssues(toBeDisplayed);
-                if (toBeDisplayed.size() == 0) {
+                logger.info("Performing listing operation for ItLogger, showing all defect...");
+                try {
+                    Vector toBeDisplayed = issueList.getIssue();
+                    logger.info("Obtained issueList...");
+                    assert toBeDisplayed != null : "IT logger issue list should exists";
+                    if (toBeDisplayed.size() == 0) {
+                        logger.info("Problem displaying empty list...no item to show...");
+                        assert toBeDisplayed.size() == 0 : "IT logger issue list should be empty here";
+                        throw new EmptyListException("The IT Logger Defect list is empty");
+                    } else {
+                        logger.info("printing issues");
+                        assert toBeDisplayed.size() > 0 : "There should be at least 1 issue to be displayed";
+                        displayIssues(toBeDisplayed);
+                    }
+                } catch (EmptyListException e) {
+                    logger.log(Level.WARNING,"Problem displaying list. error is: " + e.getMessage(), e);
                     emptyErrorMsg();
                 }
                 break;
 
             case EXIT:
+                logger.info("exiting program");
+                logger.config("updating program config to quit");
                 keepRun = false;
                 break;
+
             default:
+                logger.warning("unknown keyword sent to IT logger as command");
                 System.out.println("Unknown KeyWord, please try again!");
                 break;
             }
-
+            logger.info("completed an iteration of ItLogger logic flow.");
         }
     }
 
