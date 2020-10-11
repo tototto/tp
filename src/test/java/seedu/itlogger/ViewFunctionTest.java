@@ -82,7 +82,7 @@ public class ViewFunctionTest {
     @Test
     public void viewFunctionExceptionTest() {
         Exception exception = assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            issueList.getDefect(parseIndex("0")).toString();
+            issueList.getDefect(parseIndex("0", issueList.getSize())).toString();
         });
 
         String expectedMessage = "Index 1 out of bounds for length 1";
