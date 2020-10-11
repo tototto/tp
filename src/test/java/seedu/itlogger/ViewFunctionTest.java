@@ -2,7 +2,6 @@ package seedu.itlogger;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.itlogger.exception.ItLoggerException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
