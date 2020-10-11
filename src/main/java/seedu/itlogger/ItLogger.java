@@ -116,12 +116,13 @@ public class ItLogger {
                 try {
                     logger.info("Obtained the specific defect...");
                     int indexOfDefect = parseIndex(input);
-                    assert indexOfDefect >= 0 :"Viewing index shall non-negative";
+                    assert indexOfDefect >= 0 : "Viewing index shall non-negative";
                     System.out.println(issueList.getDefect(indexOfDefect).toString());
                     logger.info("Finished obtaining the specific defect...");
                 } catch (ArrayIndexOutOfBoundsException e) {
                     logger.log(Level.WARNING,"Problem viewing defect. error is: " + e.getMessage(), e);
-                    System.out.println("Please check the index value and also the correct format: VIEW /index. Eg:VIEW /1");
+                    System.out.println("Please check the index value and also the correct format: "
+                            + "VIEW /index. Eg:VIEW /1");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }

@@ -9,8 +9,15 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static seedu.itlogger.Parser.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.itlogger.Parser.parseTitle;
+import static seedu.itlogger.Parser.parseStatus;
+import static seedu.itlogger.Parser.parseSeverity;
+import static seedu.itlogger.Parser.parseIndex;
+import static seedu.itlogger.Parser.parseDeadline;
+import static seedu.itlogger.Parser.parseOwner;
 
 public class ViewFunctionTest {
 
@@ -47,21 +54,24 @@ public class ViewFunctionTest {
 
     @Test
     public void viewFunctionTest() {
-        assertEquals(issueList.getDefect(parseIndex("/0")).toString(), "Title: " + "cannot launch" + System.lineSeparator()
+        assertEquals(issueList.getDefect(parseIndex("/0")).toString(),
+                "Title: " + "cannot launch" + System.lineSeparator()
                 + "Status: " + "new" + System.lineSeparator()
                 + "Severity: Level " + "1" + System.lineSeparator()
                 + "Date Raised: " + dateFormat.format(Date.from(Instant.now())) + System.lineSeparator()
                 + "Deadline: " + "Oct 20 2020" + System.lineSeparator()
                 + "Owner: " + "Jack");
 
-        assertEquals(issueList.getDefect(parseIndex("/1")).toString(), "Title: " + "cannot login" + System.lineSeparator()
+        assertEquals(issueList.getDefect(parseIndex("/1")).toString(),
+                "Title: " + "cannot login" + System.lineSeparator()
                 + "Status: " + "new" + System.lineSeparator()
                 + "Severity: Level " + "1" + System.lineSeparator()
                 + "Date Raised: " + dateFormat.format(Date.from(Instant.now())) + System.lineSeparator()
                 + "Deadline: " + "Oct 20 2020" + System.lineSeparator()
                 + "Owner: " + "Jack");
 
-        assertEquals(issueList.getDefect(parseIndex("/2")).toString(), "Title: " + "cannot exit" + System.lineSeparator()
+        assertEquals(issueList.getDefect(parseIndex("/2")).toString(),
+                "Title: " + "cannot exit" + System.lineSeparator()
                 + "Status: " + "new" + System.lineSeparator()
                 + "Severity: Level " + "1" + System.lineSeparator()
                 + "Date Raised: " + dateFormat.format(Date.from(Instant.now())) + System.lineSeparator()
@@ -70,7 +80,7 @@ public class ViewFunctionTest {
     }
 
     @Test
-    public void viewFunctionExceptionTest(){
+    public void viewFunctionExceptionTest() {
         Exception exception = assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
             issueList.getDefect(parseIndex("0")).toString();
         });
