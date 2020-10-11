@@ -122,7 +122,7 @@ public class ItLogger {
                     System.out.println(issueList.getDefect(parseIndex(input,issueList.getSize())).toString());
 
                     logger.info("Obtained the specific defect...");
-                    int indexOfDefect = parseIndex(input);
+                    int indexOfDefect = parseIndex(input,issueList.getSize());
                     assert indexOfDefect >= 0 : "Viewing index shall non-negative";
                     System.out.println(issueList.getDefect(indexOfDefect).toString());
                     logger.info("Finished obtaining the specific defect...");
