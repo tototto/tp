@@ -134,17 +134,17 @@ public class ItLogger {
                 try {
                     int indexDeletion = parseIndex(input);
                     assert indexDeletion >= 0 : "Deletion index must be non-negative";
-                    assert indexDeletion <= issueList.getSize() : "Deletion index must be " +
-                            "equal or lesser than array size";
+                    assert indexDeletion <= issueList.getSize() : "Deletion index must "
+                            + "be equal or lesser than array size";
                     issueList.deleteIssue(parseIndex(input));
                     logger.info("Deletion of Defect successful");
                 } catch (ArrayIndexOutOfBoundsException e) {
-                    logger.log(Level.WARNING, "Pls check your index values. It is either greater " +
-                            "than the largest value or a negative value.");
+                    logger.log(Level.WARNING, "Pls check your index values. It is "
+                            + "either greater than the largest value or a negative value.");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    logger.log(Level.WARNING, "Some error have occurred. " +
-                            "You must have entered an invalid index" + e.getMessage());
+                    logger.log(Level.WARNING, "Some error have occurred. "
+                            + "You must have entered an invalid index" + e.getMessage());
                 }
                 break;
 
