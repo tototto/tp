@@ -11,7 +11,7 @@ public class Interface {
                                 + "|____/ \\__,_|_|\\_\\___|\n";
 
     private static String ASK_NAME = "What is your name?";
-    private static String GREEETING_MSG = "Hello ";
+    private static String GREETING_MSG = "Hello ";
     private static String PROGRAM_OPENING = "What would you like to do?";
     private static String EMPTY_ERROR_MSG = "There are no items now";
     private static String KEYWORD_ISSUE = "Keyword does not exists";
@@ -25,7 +25,7 @@ public class Interface {
     }
 
     public static void greeter(String name) {
-        System.out.println(GREEETING_MSG + name);
+        System.out.println(GREETING_MSG + name);
     }
 
     public static void programOpening() {
@@ -42,6 +42,10 @@ public class Interface {
             Defect issue = (Defect) iter.next();
             System.out.println(issue + System.lineSeparator());
         }
+    }
+
+    public static void printErrorMessageToUser(Exception errorMessage) {
+        System.out.println("ERROR: " + errorMessage);
     }
 
     public static void emptyErrorMsg() {
