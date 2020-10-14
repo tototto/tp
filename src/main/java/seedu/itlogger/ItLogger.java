@@ -15,11 +15,12 @@ import java.util.logging.SimpleFormatter;
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
 import static seedu.itlogger.Interface.askName;
+import static seedu.itlogger.Interface.printLogo;
+import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.displayIssues;
 import static seedu.itlogger.Interface.emptyErrorMsg;
-import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.keyWordIssue;
-import static seedu.itlogger.Interface.printLogo;
+import static seedu.itlogger.Interface.printErrorMessageToUser;
 import static seedu.itlogger.Interface.programOpening;
 import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
@@ -99,13 +100,16 @@ public class ItLogger {
             switch (command) {
             case ADD: // Jian Cheng
                 // todo -> add Defect
+                logger.info("Performing adding operation for ItLogger, add a new defect...");
                 try {
                     Defect newIssue = new Defect(parseTitle(input), parseStatus(input),
                                         parseSeverity(input), parseDeadline(input), parseOwner(input));
                     //System.out.println(test.toString());
+                    assert newIssue != null : "Issue in creating new issue";
                     issueList.addIssue(newIssue);
                 } catch (ParseException e) {
-                    System.out.println(e);
+                    printErrorMessageToUser(e);
+                    logger.log(Level.WARNING, "Issue in parsing command: " + e.getMessage(), e);
                 }
 
                 break;
@@ -114,8 +118,11 @@ public class ItLogger {
                 // todo -> view ONE Defect with INDEX NUMBER
                 logger.info("Performing view operation for ItLogger, viewing specific defect...");
                 try {
+
+                    System.out.println(issueList.getDefect(parseIndex(input,issueList.getSize())).toString());
+
                     logger.info("Obtained the specific defect...");
-                    int indexOfDefect = parseIndex(input);
+                    int indexOfDefect = parseIndex(input,issueList.getSize());
                     assert indexOfDefect >= 0 : "Viewing index shall non-negative";
                     System.out.println(issueList.getDefect(indexOfDefect).toString());
                     logger.info("Finished obtaining the specific defect...");
@@ -123,8 +130,7 @@ public class ItLogger {
                     logger.log(Level.WARNING,"Problem viewing defect. error is: " + e.getMessage(), e);
                     System.out.println("Please check the index value and also the correct format: "
                             + "VIEW /index. Eg:VIEW /1");
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+
                 }
                 break;
 
@@ -136,7 +142,7 @@ public class ItLogger {
                     assert indexDeletion >= 0 : "Deletion index must be non-negative";
                     assert indexDeletion <= issueList.getSize() : "Deletion index must "
                             + "be equal or lesser than array size";
-                    issueList.deleteIssue(parseIndex(input));
+                    issueList.deleteIssue(parseIndex(input,issueList.getSize()));
                     logger.info("Deletion of Defect successful");
                 } catch (ArrayIndexOutOfBoundsException e) {
                     logger.log(Level.WARNING, "Pls check your index values. It is "
