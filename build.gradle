@@ -41,6 +41,11 @@ checkstyle {
     toolVersion = '8.23'
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'seedu.itlogger.ItLogger'
+    }
+}
 run{
     standardInput = System.in
     enableAssertions = true
