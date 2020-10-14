@@ -138,11 +138,11 @@ public class ItLogger {
                 // todo -> delete ONE Defect using INDEX NUMBER
                 logger.info("Begin deleting a specific Defect...");
                 try {
-                    int indexDeletion = parseIndex(input);
+                    int indexDeletion = parseIndex(input,issueList.getSize());
                     assert indexDeletion >= 0 : "Deletion index must be non-negative";
                     assert indexDeletion <= issueList.getSize() : "Deletion index must "
                             + "be equal or lesser than array size";
-                    issueList.deleteIssue(parseIndex(input,issueList.getSize()));
+                    issueList.deleteIssue(indexDeletion);
                     logger.info("Deletion of Defect successful");
                 } catch (ArrayIndexOutOfBoundsException e) {
                     logger.log(Level.WARNING, "Pls check your index values. It is "
