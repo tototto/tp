@@ -165,4 +165,39 @@ public class Parser {
         assert parsedResult <= size && parsedResult >= 0 : "Index should be integer from 0 to " + size;
         return parsedResult;
     }
+
+    public static boolean parseUpdateContent(String fullInput,Defect defect) throws ParseException {
+        logger.info("parsing UpdateContent from user input...");
+        String cmd = "";
+        String content = "";
+
+        try {
+            cmd = fullInput.split("/")[0].substring(7);
+            content = fullInput.split("/")[1];
+        } catch (Exception e) {
+            throw new ParseException("Command has error.Please check.",1);
+        }
+        switch (cmd) {
+        case "t":
+            defect.setTitle(content);
+            return true;
+        case "s":
+            defect.setStatus(content);
+            return true;
+        case "sv":
+            defect.setSeverity(Integer.parseInt(content));
+            return true;
+        case "dl":
+            defect.setDeadline(new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).parse(content));
+            return true;
+        case "o":
+            defect.setOwner(content);
+            return true;
+        case "e":
+            return false;
+        default:
+            return true;
+        }
+    }
+
 }

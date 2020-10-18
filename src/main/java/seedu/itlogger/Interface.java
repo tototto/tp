@@ -15,6 +15,12 @@ public class Interface {
     private static String PROGRAM_OPENING = "What would you like to do?";
     private static String EMPTY_ERROR_MSG = "There are no items now";
     private static String KEYWORD_ISSUE = "Keyword does not exists";
+    private static String UPDATECONTENT_MSG = "Please specify the updating content. "
+            + "Enter \"update e/exit\" to exit updating status.";
+
+    public static void printUpdateContent() {
+        System.out.println(UPDATECONTENT_MSG);
+    }
 
     public static void printLogo() {
         System.out.println(LOGO);
