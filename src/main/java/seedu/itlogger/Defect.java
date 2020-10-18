@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
+import java.util.Locale;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
@@ -60,7 +61,7 @@ public class Defect {
      * @return String to print out for this Defect
      */
     public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd yyyy", Locale.ENGLISH);
         String strRep =  "Title: " + title + System.lineSeparator()
                         + "Status: " + status + System.lineSeparator()
                         + "Severity: Level " + severity + System.lineSeparator()
