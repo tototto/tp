@@ -5,12 +5,29 @@ import seedu.itlogger.exception.EmptyListException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Vector;
-import java.util.logging.*;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
-import static seedu.itlogger.Interface.*;
-import static seedu.itlogger.Parser.*;
+import static seedu.itlogger.Interface.askName;
+import static seedu.itlogger.Interface.displayIssues;
+import static seedu.itlogger.Interface.emptyErrorMsg;
+import static seedu.itlogger.Interface.greeter;
+import static seedu.itlogger.Interface.keyWordIssue;
+import static seedu.itlogger.Interface.printErrorMessageToUser;
+import static seedu.itlogger.Interface.printLogo;
+import static seedu.itlogger.Interface.programOpening;
+import static seedu.itlogger.Parser.parseDeadline;
+import static seedu.itlogger.Parser.parseIndex;
+import static seedu.itlogger.Parser.parseKeyWord;
+import static seedu.itlogger.Parser.parseOwner;
+import static seedu.itlogger.Parser.parseSeverity;
+import static seedu.itlogger.Parser.parseStatus;
+import static seedu.itlogger.Parser.parseTitle;
 
 public class ItLogger {
 
@@ -163,6 +180,9 @@ public class ItLogger {
                     logger.log(Level.WARNING,"Problem displaying list. error is: " + e.getMessage(), e);
                     emptyErrorMsg();
                 }
+                break;
+
+            case SEARCH: // Jun Wen
                 break;
 
             case EXIT:
