@@ -81,4 +81,27 @@ public class Defect {
         return strRep;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public int getSeverity() {
+        return severity;
+    }
+
+    public Date getDateRaised() {
+        return dateRaised;
+    }
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
 }

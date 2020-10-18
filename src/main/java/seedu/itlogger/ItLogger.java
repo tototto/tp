@@ -25,9 +25,12 @@ import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
 import static seedu.itlogger.Parser.parseKeyWord;
 import static seedu.itlogger.Parser.parseOwner;
+import static seedu.itlogger.Parser.parseSearchTerm;
+import static seedu.itlogger.Parser.parseSearchType;
 import static seedu.itlogger.Parser.parseSeverity;
 import static seedu.itlogger.Parser.parseStatus;
 import static seedu.itlogger.Parser.parseTitle;
+import static seedu.itlogger.Search.*;
 
 public class ItLogger {
 
@@ -183,6 +186,31 @@ public class ItLogger {
                 break;
 
             case SEARCH: // Jun Wen
+                // todo -> Search (search by title, status, severity, deadline, owner)
+                String searchBy = parseSearchType(input);
+                String searchTerm = parseSearchTerm(input);
+                Vector<Defect> issues = issueList.getIssue();
+
+                if (searchBy.equals("TITLE")) {
+                    displayIssues(searchTitle(searchTerm, issues));
+
+                } else if (searchBy.equals("STATUS")) {
+                    displayIssues(searchStatus(searchTerm, issues));
+
+                } else if (searchBy.equals("SEVERITY")) {
+                    displayIssues(searchSeverity(searchTerm, issues));
+
+                } else if (searchBy.equals("OWNER")) {
+                    displayIssues(searchOwner(searchTerm, issues));
+
+                } else if (searchBy.equals("DEADLINE")) {
+                    try {
+                        displayIssues(searchDeadline(searchTerm, issues));
+                    } catch (ParseException e) {
+                        System.out.println("Issue parsing date searched");
+                    }
+                }
+
                 break;
 
             case EXIT:

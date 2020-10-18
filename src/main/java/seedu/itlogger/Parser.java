@@ -169,4 +169,16 @@ public class Parser {
         assert parsedResult <= size && parsedResult >= 0 : "Index should be integer from 0 to " + size;
         return parsedResult;
     }
+
+    public static String parseSearchType(String fullInput) {
+        logger.info("parsing search type from user input...");
+        String possibleSearchType = fullInput.split("/")[1];
+        return possibleSearchType.toUpperCase().trim();
+    }
+
+    public static String parseSearchTerm(String fullInput) {
+        logger.info("parsing search term from user input...");
+        String possibleSearchTerm = fullInput.split("/")[2];
+        return possibleSearchTerm;
+    }
 }
