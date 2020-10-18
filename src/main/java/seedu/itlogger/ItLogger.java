@@ -1,7 +1,6 @@
 package seedu.itlogger;
 
 import seedu.itlogger.exception.EmptyListException;
-import seedu.itlogger.exception.ItLoggerException;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -15,12 +14,12 @@ import java.util.logging.SimpleFormatter;
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
 import static seedu.itlogger.Interface.askName;
-import static seedu.itlogger.Interface.printLogo;
-import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.displayIssues;
 import static seedu.itlogger.Interface.emptyErrorMsg;
+import static seedu.itlogger.Interface.greeter;
 import static seedu.itlogger.Interface.keyWordIssue;
 import static seedu.itlogger.Interface.printErrorMessageToUser;
+import static seedu.itlogger.Interface.printLogo;
 import static seedu.itlogger.Interface.programOpening;
 import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
@@ -46,6 +45,13 @@ public class ItLogger {
 
         // Logger setup:
         try {
+            // Remove the default console handler
+            Logger parentLogger = Logger.getLogger("");
+            Handler[] handlers = parentLogger.getHandlers();
+            for (Handler handler : handlers) {
+                parentLogger.removeHandler(handler);
+            }
+
             Handler fh = new FileHandler("ItLogger.log", true);
             fh.setFormatter(new SimpleFormatter());
             logger.addHandler(fh);
@@ -174,6 +180,9 @@ public class ItLogger {
                     logger.log(Level.WARNING,"Problem displaying list. error is: " + e.getMessage(), e);
                     emptyErrorMsg();
                 }
+                break;
+
+            case SEARCH: // Jun Wen
                 break;
 
             case EXIT:

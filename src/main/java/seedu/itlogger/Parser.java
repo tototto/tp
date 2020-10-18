@@ -6,15 +6,12 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.Locale;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
-import java.util.Locale;
-import java.util.regex.Pattern;
 
 
 /**
@@ -30,6 +27,13 @@ public class Parser {
 
     public Parser() {
         try {
+            // Remove the default console handler
+            Logger parentLogger = Logger.getLogger("");
+            Handler[] handlers = parentLogger.getHandlers();
+            for (Handler handler : handlers) {
+                parentLogger.removeHandler(handler);
+            }
+
             Handler fh = new FileHandler("Parser.log", true);
             fh.setFormatter(new SimpleFormatter());
             logger.addHandler(fh);
