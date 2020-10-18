@@ -127,6 +127,31 @@ public class ItLogger {
 
                 break;
 
+            case UPDATE: // Shijie
+                logger.info("Performing updating operation for ItLogger, update an existing defect...");
+                try {
+                    Defect defect = issueList.getDefect(parseIndex(input,issueList.getSize()));
+                    boolean isExit = false;
+                    do {
+                        String updateCommandContent = "";
+                        System.out.println("You are modifying:");
+                        System.out.println(defect.toString());
+                        Interface.printUpdateContent();
+                        if (hasNextLine()) {
+                            updateCommandContent = getInput();
+                            isExit = Parser.parseUpdateContent(updateCommandContent,defect);
+                        }
+                    } while (isExit);
+                } catch (ParseException e) {
+                    printErrorMessageToUser(e);
+                    logger.log(Level.WARNING, "Issue in parsing command: " + e.getMessage(), e);
+                } catch (Exception e) {
+                    printErrorMessageToUser(e);
+                    logger.log(Level.WARNING, "Update occurs unknown error: " + e.getMessage(), e);
+                }
+
+                break;
+
             case VIEW: // Shi Jie
                 // todo -> view ONE Defect with INDEX NUMBER
                 logger.info("Performing view operation for ItLogger, viewing specific defect...");
