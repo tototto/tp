@@ -30,7 +30,11 @@ import static seedu.itlogger.Parser.parseSearchType;
 import static seedu.itlogger.Parser.parseSeverity;
 import static seedu.itlogger.Parser.parseStatus;
 import static seedu.itlogger.Parser.parseTitle;
-import static seedu.itlogger.Search.*;
+import static seedu.itlogger.Search.searchDeadline;
+import static seedu.itlogger.Search.searchOwner;
+import static seedu.itlogger.Search.searchSeverity;
+import static seedu.itlogger.Search.searchStatus;
+import static seedu.itlogger.Search.searchTitle;
 
 public class ItLogger {
 
