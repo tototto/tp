@@ -54,7 +54,7 @@ public class ViewFunctionTest {
 
     @Test
     public void viewFunctionTest() {
-        assertEquals(issueList.getDefect(parseIndex("/0")).toString(),
+        assertEquals(issueList.getDefect(parseIndex("/0", issueList.getSize())).toString(),
                 "Title: " + "cannot launch" + System.lineSeparator()
                 + "Status: " + "new" + System.lineSeparator()
                 + "Severity: Level " + "1" + System.lineSeparator()
@@ -62,7 +62,7 @@ public class ViewFunctionTest {
                 + "Deadline: " + "Oct 20 2020" + System.lineSeparator()
                 + "Owner: " + "Jack");
 
-        assertEquals(issueList.getDefect(parseIndex("/1")).toString(),
+        assertEquals(issueList.getDefect(parseIndex("/1", issueList.getSize())).toString(),
                 "Title: " + "cannot login" + System.lineSeparator()
                 + "Status: " + "new" + System.lineSeparator()
                 + "Severity: Level " + "1" + System.lineSeparator()
@@ -70,7 +70,7 @@ public class ViewFunctionTest {
                 + "Deadline: " + "Oct 20 2020" + System.lineSeparator()
                 + "Owner: " + "Jack");
 
-        assertEquals(issueList.getDefect(parseIndex("/2")).toString(),
+        assertEquals(issueList.getDefect(parseIndex("/2", issueList.getSize())).toString(),
                 "Title: " + "cannot exit" + System.lineSeparator()
                 + "Status: " + "new" + System.lineSeparator()
                 + "Severity: Level " + "1" + System.lineSeparator()
@@ -82,7 +82,7 @@ public class ViewFunctionTest {
     @Test
     public void viewFunctionExceptionTest() {
         Exception exception = assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            issueList.getDefect(parseIndex("0")).toString();
+            issueList.getDefect(parseIndex("0", issueList.getSize())).toString();
         });
 
         String expectedMessage = "Index 1 out of bounds for length 1";

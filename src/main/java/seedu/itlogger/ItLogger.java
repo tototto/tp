@@ -1,7 +1,6 @@
 package seedu.itlogger;
 
 import seedu.itlogger.exception.EmptyListException;
-import seedu.itlogger.exception.ItLoggerException;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -14,20 +13,29 @@ import java.util.logging.SimpleFormatter;
 
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
-import static seedu.itlogger.Interface.askName;
-import static seedu.itlogger.Interface.displayIssues;
-import static seedu.itlogger.Interface.emptyErrorMsg;
-import static seedu.itlogger.Interface.greeter;
-import static seedu.itlogger.Interface.keyWordIssue;
+import static seedu.itlogger.Interface.printFileToUser;
+import static seedu.itlogger.Interface.printErrorMessageToUser;
 import static seedu.itlogger.Interface.printLogo;
 import static seedu.itlogger.Interface.programOpening;
+import static seedu.itlogger.Interface.askName;
+import static seedu.itlogger.Interface.greeter;
+import static seedu.itlogger.Interface.keyWordIssue;
+import static seedu.itlogger.Interface.emptyErrorMsg;
+import static seedu.itlogger.Interface.displayIssues;
 import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
 import static seedu.itlogger.Parser.parseKeyWord;
 import static seedu.itlogger.Parser.parseOwner;
+import static seedu.itlogger.Parser.parseSearchTerm;
+import static seedu.itlogger.Parser.parseSearchType;
 import static seedu.itlogger.Parser.parseSeverity;
 import static seedu.itlogger.Parser.parseStatus;
 import static seedu.itlogger.Parser.parseTitle;
+import static seedu.itlogger.Search.searchDeadline;
+import static seedu.itlogger.Search.searchOwner;
+import static seedu.itlogger.Search.searchSeverity;
+import static seedu.itlogger.Search.searchStatus;
+import static seedu.itlogger.Search.searchTitle;
 
 public class ItLogger {
 
@@ -41,10 +49,17 @@ public class ItLogger {
      * Main entry-point for the java.duke.Duke application.
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // Logger setup:
         try {
+            // Remove the default console handler
+            Logger parentLogger = Logger.getLogger("");
+            Handler[] handlers = parentLogger.getHandlers();
+            for (Handler handler : handlers) {
+                parentLogger.removeHandler(handler);
+            }
+
             Handler fh = new FileHandler("ItLogger.log", true);
             fh.setFormatter(new SimpleFormatter());
             logger.addHandler(fh);
@@ -99,13 +114,41 @@ public class ItLogger {
             switch (command) {
             case ADD: // Jian Cheng
                 // todo -> add Defect
+                logger.info("Performing adding operation for ItLogger, add a new defect...");
                 try {
                     Defect newIssue = new Defect(parseTitle(input), parseStatus(input),
                                         parseSeverity(input), parseDeadline(input), parseOwner(input));
                     //System.out.println(test.toString());
+                    assert newIssue != null : "Issue in creating new issue";
                     issueList.addIssue(newIssue);
                 } catch (ParseException e) {
-                    System.out.println(e);
+                    printErrorMessageToUser(e);
+                    logger.log(Level.WARNING, "Issue in parsing command: " + e.getMessage(), e);
+                }
+
+                break;
+
+            case UPDATE: // Shijie
+                logger.info("Performing updating operation for ItLogger, update an existing defect...");
+                try {
+                    Defect defect = issueList.getDefect(parseIndex(input,issueList.getSize()));
+                    boolean isExit = false;
+                    do {
+                        String updateCommandContent = "";
+                        System.out.println("You are modifying:");
+                        System.out.println(defect.toString());
+                        Interface.printUpdateContent();
+                        if (hasNextLine()) {
+                            updateCommandContent = getInput();
+                            isExit = Parser.parseUpdateContent(updateCommandContent,defect);
+                        }
+                    } while (isExit);
+                } catch (ParseException e) {
+                    printErrorMessageToUser(e);
+                    logger.log(Level.WARNING, "Issue in parsing command: " + e.getMessage(), e);
+                } catch (Exception e) {
+                    printErrorMessageToUser(e);
+                    logger.log(Level.WARNING, "Update occurs unknown error: " + e.getMessage(), e);
                 }
 
                 break;
@@ -114,8 +157,11 @@ public class ItLogger {
                 // todo -> view ONE Defect with INDEX NUMBER
                 logger.info("Performing view operation for ItLogger, viewing specific defect...");
                 try {
+
+                    System.out.println(issueList.getDefect(parseIndex(input,issueList.getSize())).toString());
+
                     logger.info("Obtained the specific defect...");
-                    int indexOfDefect = parseIndex(input);
+                    int indexOfDefect = parseIndex(input,issueList.getSize());
                     assert indexOfDefect >= 0 : "Viewing index shall non-negative";
                     System.out.println(issueList.getDefect(indexOfDefect).toString());
                     logger.info("Finished obtaining the specific defect...");
@@ -123,17 +169,27 @@ public class ItLogger {
                     logger.log(Level.WARNING,"Problem viewing defect. error is: " + e.getMessage(), e);
                     System.out.println("Please check the index value and also the correct format: "
                             + "VIEW /index. Eg:VIEW /1");
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+
                 }
                 break;
 
             case DELETE: // Jang
                 // todo -> delete ONE Defect using INDEX NUMBER
+                logger.info("Begin deleting a specific Defect...");
                 try {
-                    issueList.deleteIssue(parseIndex(input));
+                    int indexDeletion = parseIndex(input,issueList.getSize());
+                    assert indexDeletion >= 0 : "Deletion index must be non-negative";
+                    assert indexDeletion <= issueList.getSize() : "Deletion index must "
+                            + "be equal or lesser than array size";
+                    issueList.deleteIssue(indexDeletion);
+                    logger.info("Deletion of Defect successful");
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    logger.log(Level.WARNING, "Pls check your index values. It is "
+                            + "either greater than the largest value or a negative value.");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
+                    logger.log(Level.WARNING, "Some error have occurred. "
+                            + "You must have entered an invalid index" + e.getMessage());
                 }
                 break;
 
@@ -159,6 +215,38 @@ public class ItLogger {
                 }
                 break;
 
+            case SEARCH: // Jun Wen
+                // todo -> Search (search by title, status, severity, deadline, owner)
+                String searchBy = parseSearchType(input);
+                String searchTerm = parseSearchTerm(input);
+                Vector<Defect> issues = issueList.getIssue();
+
+                if (searchBy.equals("TITLE")) {
+                    displayIssues(searchTitle(searchTerm, issues));
+
+                } else if (searchBy.equals("STATUS")) {
+                    displayIssues(searchStatus(searchTerm, issues));
+
+                } else if (searchBy.equals("SEVERITY")) {
+                    displayIssues(searchSeverity(searchTerm, issues));
+
+                } else if (searchBy.equals("OWNER")) {
+                    displayIssues(searchOwner(searchTerm, issues));
+
+                } else if (searchBy.equals("DEADLINE")) {
+                    try {
+                        displayIssues(searchDeadline(searchTerm, issues));
+                    } catch (ParseException e) {
+                        System.out.println("Issue parsing date searched");
+                    }
+                }
+
+                break;
+            case HELP:
+                logger.info("help operation started");
+                String helpFilePath = "docs/help.txt";
+                printFileToUser(helpFilePath);
+                break;
             case EXIT:
                 logger.info("exiting program");
                 logger.config("updating program config to quit");
