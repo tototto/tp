@@ -170,6 +170,19 @@ public class Parser {
         return parsedResult;
     }
 
+
+    public static String parseSearchType(String fullInput) {
+        logger.info("parsing search type from user input...");
+        String possibleSearchType = fullInput.split("/")[1];
+        return possibleSearchType.toUpperCase().trim();
+    }
+
+    public static String parseSearchTerm(String fullInput) {
+        logger.info("parsing search term from user input...");
+        String possibleSearchTerm = fullInput.split("/")[2];
+        return possibleSearchTerm;
+    }
+
     public static boolean parseUpdateContent(String fullInput,Defect defect) throws ParseException {
         logger.info("parsing UpdateContent from user input...");
         String cmd = "";
