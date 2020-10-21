@@ -8,5 +8,6 @@ public enum KeyWord {
     LIST,
     EXIT,
     SEARCH,
+    HELP,
     OTHERS
 }
