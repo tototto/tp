@@ -49,9 +49,6 @@ public class StorageFile {
             } catch (IOException e) {
                 throw new StorageOperationException("File contents in wrong format");
             }
-
-        } else {
-            throw new FileNotFoundException();
         }
     }
 
