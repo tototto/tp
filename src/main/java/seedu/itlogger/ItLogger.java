@@ -264,7 +264,7 @@ public class ItLogger {
                 try {
                     storage.save(issueList);
                 } catch (StorageFile.StorageOperationException e) {
-                    System.out.println("Issue saving file");
+                    System.out.println("Issue saving file. Exiting Program");
                 }
 
                 logger.info("exiting program");
