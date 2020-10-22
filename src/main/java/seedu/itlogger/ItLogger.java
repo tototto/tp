@@ -85,7 +85,7 @@ public class ItLogger {
         } catch (StorageFile.StorageOperationException e) {
             Interface.printErrorMessageToUser(e);
         } //catch (FileNotFoundException e) {
-            //System.out.println("File not found. No Tasks preloaded.");
+        //System.out.println("File not found. No Tasks preloaded.");
         //}
         logger.info("Creating ITLogger issue list...");
 
