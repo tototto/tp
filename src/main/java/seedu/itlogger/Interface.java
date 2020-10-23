@@ -1,5 +1,8 @@
 package seedu.itlogger;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -15,6 +18,12 @@ public class Interface {
     private static String PROGRAM_OPENING = "What would you like to do?";
     private static String EMPTY_ERROR_MSG = "There are no items now";
     private static String KEYWORD_ISSUE = "Keyword does not exists";
+    private static String UPDATECONTENT_MSG = "Please specify the updating content. "
+            + "Enter \"update e/exit\" to exit updating status.";
+
+    public static void printUpdateContent() {
+        System.out.println(UPDATECONTENT_MSG);
+    }
 
     public static void printLogo() {
         System.out.println(LOGO);
@@ -42,6 +51,16 @@ public class Interface {
             Defect issue = (Defect) iter.next();
             System.out.println(issue + System.lineSeparator());
         }
+    }
+
+    public static void printFileToUser(String filePath) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
+        String nextLine = bf.readLine();
+        while (nextLine != null) {
+            System.out.println(nextLine);
+            nextLine = bf.readLine();
+        }
+        bf.close();
     }
 
     public static void printErrorMessageToUser(Exception errorMessage) {

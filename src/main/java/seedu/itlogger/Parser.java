@@ -6,15 +6,12 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.Locale;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
-import java.util.Locale;
-import java.util.regex.Pattern;
 
 
 /**
@@ -30,6 +27,13 @@ public class Parser {
 
     public Parser() {
         try {
+            // Remove the default console handler
+            Logger parentLogger = Logger.getLogger("");
+            Handler[] handlers = parentLogger.getHandlers();
+            for (Handler handler : handlers) {
+                parentLogger.removeHandler(handler);
+            }
+
             Handler fh = new FileHandler("Parser.log", true);
             fh.setFormatter(new SimpleFormatter());
             logger.addHandler(fh);
@@ -165,4 +169,52 @@ public class Parser {
         assert parsedResult <= size && parsedResult >= 0 : "Index should be integer from 0 to " + size;
         return parsedResult;
     }
+
+
+    public static String parseSearchType(String fullInput) {
+        logger.info("parsing search type from user input...");
+        String possibleSearchType = fullInput.split("/")[1];
+        return possibleSearchType.toUpperCase().trim();
+    }
+
+    public static String parseSearchTerm(String fullInput) {
+        logger.info("parsing search term from user input...");
+        String possibleSearchTerm = fullInput.split("/")[2];
+        return possibleSearchTerm;
+    }
+
+    public static boolean parseUpdateContent(String fullInput,Defect defect) throws ParseException {
+        logger.info("parsing UpdateContent from user input...");
+        String cmd = "";
+        String content = "";
+
+        try {
+            cmd = fullInput.split("/")[0].substring(7);
+            content = fullInput.split("/")[1];
+        } catch (Exception e) {
+            throw new ParseException("Command has error.Please check.",1);
+        }
+        switch (cmd) {
+        case "t":
+            defect.setTitle(content);
+            return true;
+        case "s":
+            defect.setStatus(content);
+            return true;
+        case "sv":
+            defect.setSeverity(Integer.parseInt(content));
+            return true;
+        case "dl":
+            defect.setDeadline(new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).parse(content));
+            return true;
+        case "o":
+            defect.setOwner(content);
+            return true;
+        case "e":
+            return false;
+        default:
+            return true;
+        }
+    }
+
 }
