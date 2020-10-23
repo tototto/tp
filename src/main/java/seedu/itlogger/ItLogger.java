@@ -1,7 +1,9 @@
 package seedu.itlogger;
 
 import seedu.itlogger.exception.EmptyListException;
+import seedu.itlogger.storage.StorageFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Vector;
@@ -44,6 +46,9 @@ public class ItLogger {
      */
 
     private static final Logger logger = Logger.getLogger(ItLogger.class.getName());
+    private static StorageFile storage = new StorageFile();
+
+
 
     /**
      * Main entry-point for the java.duke.Duke application.
@@ -72,8 +77,16 @@ public class ItLogger {
         InputHandler inputHandler = new InputHandler();
 
         // Program starting point:
+
         IssueList issueList = new IssueList();
         assert issueList != null : "issueList should have been created";
+        try {
+            storage.load(issueList);
+        } catch (StorageFile.StorageOperationException e) {
+            Interface.printErrorMessageToUser(e);
+        } //catch (FileNotFoundException e) {
+        //System.out.println("File not found. No Tasks preloaded.");
+        //}
         logger.info("Creating ITLogger issue list...");
 
         printLogo();
@@ -248,6 +261,12 @@ public class ItLogger {
                 printFileToUser(helpFilePath);
                 break;
             case EXIT:
+                try {
+                    storage.save(issueList);
+                } catch (StorageFile.StorageOperationException e) {
+                    System.out.println("Issue saving file. Exiting Program");
+                }
+
                 logger.info("exiting program");
                 logger.config("updating program config to quit");
                 keepRun = false;

@@ -26,6 +26,7 @@ public class IssueList {
         }
     }
 
+
     public static void setupLogger() throws IOException {
         // Remove the default console handler
         Logger parentLogger = Logger.getLogger("");
@@ -44,6 +45,10 @@ public class IssueList {
         logger.info("fetching all issues from issueList...");
         assert issueList != null : "issueList returned should not be null";
         return issueList;
+    }
+
+    public void loadIssues(Vector<Defect> defectsList) {
+        issueList.addAll(defectsList);
     }
 
     public void addIssue(Defect defect) {
