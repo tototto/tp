@@ -47,7 +47,7 @@ manage defects faster than a typical mouse/GUI driven app. Allows the user to be
 
 ## Glossary
 
-* *Mainstream OS:* Windows, Linux, Unix, OS-X
+* *Mainstream OS:* Windows, Linux, Unix, OS-X.
 
 ## Instructions for manual testing
 
