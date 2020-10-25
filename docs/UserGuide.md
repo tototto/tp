@@ -26,7 +26,7 @@ IT Logger is a desktop app for managing program issues, and tracking issue resol
 |help |Display the Help Guide|
 |exit |Exit the ITlogger program|
 |Nil. Not required. If text file itLogger.txt is found, it will preload. |Load issues from text files when program starts|
-|exit|Save issues to text files when program exits |
+|exit|Save issues to itLogger.txt when program exits. If none exists, it will create one.|
 
 
 
