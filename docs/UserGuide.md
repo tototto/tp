@@ -18,8 +18,8 @@ IT Logger is a desktop app for managing program issues, and tracking issue resol
 |Action| Command Summary|
 |--------|----------|
 |view | View the issue that is stated with Ticket Number.|
-|add  | Adding a new issue|
-|update |Update an existing issue|
+|add  | Adding a new issue.|
+|update |Update an existing issue.|
 |list |Listing all issues|
 |search |Search the issue with conditions|
 |delete |Delete an issue that is stated with Ticket Number|
