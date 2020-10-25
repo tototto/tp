@@ -52,6 +52,6 @@ IT Logger is a desktop app for managing program issues, and tracking issue resol
 
 ## Command Summary
 
-{Give a 'cheat sheet' of commands here}
+{Give a 'cheat sheet' of commands here}.
 
 * Add todo `todo n/TODO_NAME d/DEADLINE`
