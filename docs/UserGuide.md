@@ -48,7 +48,7 @@ IT Logger is a desktop app for managing program issues, and tracking issue resol
 
 **Q**: How do I transfer my data to another computer? 
 
-**A**: {your answer here}
+**A**: {your answer here}.
 
 ## Command Summary
 
