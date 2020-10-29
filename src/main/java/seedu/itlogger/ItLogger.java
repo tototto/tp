@@ -1,7 +1,9 @@
 package seedu.itlogger;
 
 import seedu.itlogger.exception.EmptyListException;
+import seedu.itlogger.storage.StorageFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Vector;
@@ -13,14 +15,15 @@ import java.util.logging.SimpleFormatter;
 
 import static seedu.itlogger.InputHandler.getInput;
 import static seedu.itlogger.InputHandler.hasNextLine;
-import static seedu.itlogger.Interface.askName;
-import static seedu.itlogger.Interface.displayIssues;
-import static seedu.itlogger.Interface.emptyErrorMsg;
-import static seedu.itlogger.Interface.greeter;
-import static seedu.itlogger.Interface.keyWordIssue;
+import static seedu.itlogger.Interface.printFileToUser;
 import static seedu.itlogger.Interface.printErrorMessageToUser;
 import static seedu.itlogger.Interface.printLogo;
 import static seedu.itlogger.Interface.programOpening;
+import static seedu.itlogger.Interface.askName;
+import static seedu.itlogger.Interface.greeter;
+import static seedu.itlogger.Interface.keyWordIssue;
+import static seedu.itlogger.Interface.emptyErrorMsg;
+import static seedu.itlogger.Interface.displayIssues;
 import static seedu.itlogger.Parser.parseDeadline;
 import static seedu.itlogger.Parser.parseIndex;
 import static seedu.itlogger.Parser.parseKeyWord;
@@ -43,12 +46,15 @@ public class ItLogger {
      */
 
     private static final Logger logger = Logger.getLogger(ItLogger.class.getName());
+    private static StorageFile storage = new StorageFile();
+
+
 
     /**
      * Main entry-point for the java.duke.Duke application.
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // Logger setup:
         try {
@@ -71,8 +77,16 @@ public class ItLogger {
         InputHandler inputHandler = new InputHandler();
 
         // Program starting point:
+
         IssueList issueList = new IssueList();
         assert issueList != null : "issueList should have been created";
+        try {
+            storage.load(issueList);
+        } catch (StorageFile.StorageOperationException e) {
+            Interface.printErrorMessageToUser(e);
+        } //catch (FileNotFoundException e) {
+        //System.out.println("File not found. No Tasks preloaded.");
+        //}
         logger.info("Creating ITLogger issue list...");
 
         printLogo();
@@ -241,8 +255,18 @@ public class ItLogger {
                 }
 
                 break;
-
+            case HELP:
+                logger.info("help operation started");
+                String helpFilePath = "docs/help.txt";
+                printFileToUser(helpFilePath);
+                break;
             case EXIT:
+                try {
+                    storage.save(issueList);
+                } catch (StorageFile.StorageOperationException e) {
+                    System.out.println("Issue saving file. Exiting Program");
+                }
+
                 logger.info("exiting program");
                 logger.config("updating program config to quit");
                 keepRun = false;
