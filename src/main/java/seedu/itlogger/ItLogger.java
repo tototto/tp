@@ -2,8 +2,7 @@ package seedu.itlogger;
 
 import seedu.itlogger.exception.EmptyListException;
 import seedu.itlogger.storage.StorageFile;
-
-import java.io.*;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Vector;
 import java.util.logging.FileHandler;
