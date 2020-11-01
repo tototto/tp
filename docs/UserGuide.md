@@ -20,7 +20,7 @@ IT Logger is a desktop app for managing program issues, and tracking issue resol
 |view | View the issue that is stated with Ticket Number.|
 |add  | Adding a new issue.|
 |update |Update an existing issue.|
-|list |Listing all issues|
+|list |Listing all issues in selected requirement|
 |search |Search the issue with conditions|
 |delete |Delete an issue that is stated with Ticket Number|
 |help |Display the Help Guide|
@@ -38,7 +38,7 @@ IT Logger is a desktop app for managing program issues, and tracking issue resol
 |update|Update procedure and cmd format:<br>Using the following cmd to enter updating mode:<br>&nbsp;&nbsp;&nbsp;&nbsp;update u/1<br>&nbsp;&nbsp;&nbsp;&nbsp;update u/0 <br>Update the content with the following format: <br>update t/ExampleTitle<br>&nbsp;&nbsp;&nbsp;&nbsp;update sv/2<br>update s/assigned<br>update o/Peter<br>Once finish updating, using:<br>&nbsp;&nbsp;&nbsp;&nbsp;update e/exit <br>to exit update|
 |view|view v/TICKET<br>E.g. view v/13451|
 |delete|delete d/TICKET<br>E.g. delete d/32231|
-|list|list|
+|list|list<br>list sv/a<br>list sv/d<br>list dl/a<br>list dl/d<br>list dr/a<br>list dr/d|
 |help|help|
 |search|search /title /<title><br>search /status /<status><br>search /severity /<severityNum><br>search /owner /<owner><br>search /deadline /<deadlineDateString(dd-MM-yyyy)>|
 |exit|exit|
