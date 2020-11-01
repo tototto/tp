@@ -2,8 +2,6 @@ package seedu.itlogger;
 
 import seedu.itlogger.exception.EmptyListException;
 import seedu.itlogger.storage.StorageFile;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Vector;
@@ -265,8 +263,7 @@ public class ItLogger {
                 break;
             case HELP:
                 logger.info("help operation started");
-                String helpFilePath = "docs/help.txt";
-                printFileToUser(helpFilePath);
+                printFileToUser();
                 break;
             case EXIT:
                 try {
