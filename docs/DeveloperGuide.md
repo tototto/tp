@@ -3,9 +3,11 @@
 ## Design
 //todo overview
 
-//todo Architechture
+## Architechture
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 ![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/architecture.png)
+
+The Architecture Diagram given above explains the high-level design of the App. Given below is a quick overview of each component.
 
 //todo UI component
 
