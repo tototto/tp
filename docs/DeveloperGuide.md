@@ -9,6 +9,21 @@
 
 The Architecture Diagram given above explains the high-level design of the App. Given below is a quick overview of each component.
 
+The rest of the App consists of four components.
+
+UI: The UI of the App.
+Main: The main logic handler of the App.
+Commons: The control variable of the App.
+Storage: Reads data from, and writes data to, the hard disk.
+Finder: Searches and sort the data
+IssueList: Define the structure of each issue to track.
+
+Each of the six components,
+
+## How the architecture components interact with each other
+
+The Sequence Diagram below shows how the components interact with each other for the scenario where the user issues the command delete 1.
+
 //todo UI component
 
 
