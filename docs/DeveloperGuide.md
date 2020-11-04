@@ -1,8 +1,29 @@
 # Developer Guide
 
-## Design & implementation
+## Design
+//todo overview
 
+//todo Architechture
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
+
+
+//todo UI component
+
+
+//todo FINDER component
+
+
+//todo STORAGE component
+
+
+//todo IssueList component
+
+
+//todo COMMONS component
+
+
+## Implementation
+// take one user story as example to showcase how certain features are implemented. 
 
 
 ## Product scope
@@ -52,3 +73,6 @@ manage defects faster than a typical mouse/GUI driven app. Allows the user to be
 ## Instructions for manual testing
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+
+![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/updateSequenceDiagram.png)
+
