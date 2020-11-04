@@ -5,7 +5,7 @@
 
 //todo Architechture
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
+![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/architecture.png)
 
 //todo UI component
 
