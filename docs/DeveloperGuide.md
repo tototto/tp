@@ -33,11 +33,25 @@ The Sequence Diagram below shows how the components interact with each other for
 //todo STORAGE component
 
 
-//todo IssueList component
+## IssueList component
 
+The IssueList component is the container to save the data of defects during execution of program. It consist two classes, IssueList and Defects. Issuelist has a vector to store defects.  And the Defect class is the class of defects as what we defined. It contains the defect name, status, severity,date raised, deadline and owner.
 
-//todo COMMONS component
+The IssueList component:
+* Able to interact with Storage component and load existing issues
+* Able to add new defects and store it in the instance of IssueList class
+* Able to delete existing defects that stored in the instance of IssueList class
+* Able to get defects that stored in the instaance of IssueList class
+* Able to get the whole IssueList itself 
+* Able to set/get all details of any specified defect
 
+![Image of IssueListComponentClassDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/IssueListComponent.png)
+
+## COMMONS component
+
+The commons component are those classes used by multiple components are in the program,such as enum classes and the parser class.
+
+The parser class is mainly in charge of parse user's input and convert them to a workable format to the program. The enum classes are used to strict the keywords. 
 
 ## Implementation
 // take one user story as example to showcase how certain features are implemented. 
