@@ -25,6 +25,7 @@ https://nus-tic4001-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort
 Implemented the following function:
 
 |Action|Format, Examples|
+|--------|----------|
 | list | list |
 | Search| search /title /<title><br>search /status /<status><br>search /severity /<severityNum><br>search /owner /<owner><br>search /deadline /<deadlineDateString(dd-MM-yyyy)> |
 
