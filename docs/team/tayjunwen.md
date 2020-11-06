@@ -55,6 +55,7 @@ Also Collaborated & Collaborated & Worked together with the team. Jiancheng cons
  5. Contributed ideas during discussions in weekly meetings.
  6. Set forward each iteration task and planning to ensure smooth project progress.
  7. Perform code enhancement for Logging and Assertion.
+ 8. Assist to create the setup of additional Junit Testcases.
 
 ### Review/mentoring contributions: 
 
