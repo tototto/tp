@@ -29,12 +29,15 @@ The Sequence Diagram below shows how the components interact with each other for
 ![Image of UI Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/interface.png)
 
 The UI componenet is the handler of the user input and output result to the user. It includes InputHandler Class which will deal with user input, and Interface Class which will handle all the console printing interaction. Project team have also store the information of help command inside Interface which will make the help command work when the program is compiled into the jar file.
+
 Both InputHandler and Interface contains only static method, which will be utilize in all the other classes. But the majority of the method call was from the main class, ItLogger.
 
 //todo FINDER component
 ## FINDER component
 
-the FINDER component includes Search and Sort classes.
+![Image of Finder Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/finder.png)
+
+The FINDER component includes Search and Sort classes. It is used to provide an organised output based on the user desired output selection option.
 
 # sort
 Sort class is consist of API to sort the issuelist in given request with quick sort algorithm. It is called from view command with addon keyword to view the sorted list.
