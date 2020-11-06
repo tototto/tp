@@ -38,16 +38,28 @@ Implemented the following function:
 
 ##### User Guide:
 
-Collaborated & Worked together with the teamm. Jiancheng consolidated the submission to teams repo.
+Assisted to produce the Feature & Command Summary Section.
+Also Collaborated & Worked together with the team on the remaining parts of the UG. Jiancheng consolidated the submission to teams repo.
 
 ##### Contributions to the Developer Guide:
 
-Collaborated & Worked together with the team. Jiancheng consolidated the submission to teams repo.
+Assisted to upload members UML diagram's and created Object and Class diagram to illustrate program makeup and flow for ```list``` and ```search``` function.
+Also Collaborated & Collaborated & Worked together with the team. Jiancheng consolidated the submission to teams repo.
 
 ### Contributions to team-based tasks :
 
+ a. Setup the Repo in preparation for the project (e.g. creating the Repo, implementing Repo security setup, etc)
+ b. Advising and reminding team to utilise project tools such as style guide checker to avoid Continuous Integration failure.
+ c. Setting up of Team mile stone, creating incidents and moving User stories into them for easy tracking
+ d. Perform basic manual testing during early stages of development. Raised bugs and issues.
+ e. Contributed ideas during discussions in weekly meetings.
+ f. Set forward each iteration task and planning to ensure smooth project progress.
+ e. Perform code enhancement for Logging and Assertion.
+
 ### Review/mentoring contributions: 
+
+Assisted team members to resolve technical issue and provided articles to assist in their problem resolution within Team's internal chat.
 
 ### Contributions beyond the project team:
 
-
+Motivated the team during weekly discussion by discussing about matters outside of project work to build and consolidate bond. Kept relationship healthy.
