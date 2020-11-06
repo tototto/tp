@@ -26,6 +26,8 @@ The Sequence Diagram below shows how the components interact with each other for
 
 ## UI component
 
+![Image of UI Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/interface.png)
+
 
 
 //todo FINDER component
