@@ -27,7 +27,7 @@ Implemented the following function:
 |Action|Format, Examples|
 |--------|----------|
 | list | ```list``` |
-| Search| ```search /title /<title> <br> search /status /<status> <br> search /severity /<severityNum> <br> search /owner /<owner> <br> search /deadline /<deadlineDateString(dd-MM-yyyy)>``` |
+| Search| ```search /title /<title>``` <br> ```search /status /<status>``` <br>``` search /severity /<severityNum>``` <br> ```search /owner /<owner> ```<br> ```search /deadline /<deadlineDateString(dd-MM-yyyy)>``` |
   
  The ```list``` function was created to allow different users to view the total list of defects present in the IT Logger
  It was subsequently enhanced to perform listing based on different types & category such as severity, deadline and etc. It is a must have feature in for usage.
