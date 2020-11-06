@@ -48,13 +48,13 @@ Also Collaborated & Collaborated & Worked together with the team. Jiancheng cons
 
 ### Contributions to team-based tasks :
 
- a. Setup the Repo in preparation for the project (e.g. creating the Repo, implementing Repo security setup, etc)
- b. Advising and reminding team to utilise project tools such as style guide checker to avoid Continuous Integration failure.
- c. Setting up of Team mile stone, creating incidents and moving User stories into them for easy tracking
- d. Perform basic manual testing during early stages of development. Raised bugs and issues.
- e. Contributed ideas during discussions in weekly meetings.
- f. Set forward each iteration task and planning to ensure smooth project progress.
- e. Perform code enhancement for Logging and Assertion.
+ 1. Setup the Repo in preparation for the project (e.g. creating the Repo, implementing Repo security setup, etc)
+ 2. Advising and reminding team to utilise project tools such as style guide checker to avoid Continuous Integration failure.
+ 3. Setting up of Team mile stone, creating incidents and moving User stories into them for easy tracking
+ 4. Perform basic manual testing during early stages of development. Raised bugs and issues.
+ 5. Contributed ideas during discussions in weekly meetings.
+ 6. Set forward each iteration task and planning to ensure smooth project progress.
+ 7. Perform code enhancement for Logging and Assertion.
 
 ### Review/mentoring contributions: 
 
