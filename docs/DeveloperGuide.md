@@ -24,7 +24,8 @@ Each of the six components,
 
 The Sequence Diagram below shows how the components interact with each other for the scenario where the user issues the command delete 1.
 
-//todo UI component
+## UI component
+
 
 
 //todo FINDER component
