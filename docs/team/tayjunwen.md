@@ -2,15 +2,38 @@
 
 ## Objectives
 
+A software Engineering project focusing on the implementation of a Green Field Project with an empahsis on Team work with different team members that adopts a software iterative approach to development. This software underwent 3 iteration during its development.
+
 ## Overview
+
+### Project: IT logger
+
+Developed using JAVA, IT Logger is a desktop app for managing software issues during development and production. It is used for tracking issue resolution from defect inception till resolution via a Command Line Interface (CLI).
+
+It can be used for managing the Quality Control (QC) of different project during its SDLC.
+
+It has features similar to most defect tracking softwares such as JIRA & HP ALM.
 
 ### Code Contributed
 
 https://nus-tic4001-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&tabAuthor=tototto&tabRepo=AY2021S1-TIC4001-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code
 
-## Summary of Contribution
+### Enhancements implemented:
 
-Contributions to the Developer Guide
+### Contributions to documentation:
 
-Contributions to the User Guide
+#### User Guide:
+
+Work together with all teammates. And one of us (Jiancheng) is in charge of submission to teams repo.
+
+#### Contributions to the Developer Guide:
+
+Work together with all teammates. And one of us (Jiancheng) is in charge of submission to teams repo.
+
+### Contributions to team-based tasks :
+
+### Review/mentoring contributions: 
+
+### Contributions beyond the project team:
+
 
