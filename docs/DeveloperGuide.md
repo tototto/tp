@@ -65,6 +65,28 @@ The parser class is mainly in charge of parse user's input and convert them to a
 ## Implementation
 // take one user story as example to showcase how certain features are implemented. 
 
+Search Implementation
+
+The ```search``` feature displays all items in the the ItLogger. It is facillated by the Search Class which comprises of the following implementation:
+
+1. ```Search#searchTitle``` - searches all Issue in the ItLogger by title listed
+2. ```Search#searchStatus``` - searches all Issue in the ItLogger by status listed
+3. ```Search#searchSeverity``` - searches all Issue in the ItLogger by severity listed
+4. ```Search#searchDeadline``` - searches all Issue in the ItLogger by deadline listed
+5. ```Search#searchOwner``` - searches all Issue in the ItLogger by owner listed
+
+The following sequence diagram shows how the undo operation works.
+
+##### Design consideration:
+Aspect: Search can otherwise be implemented
+
+###### Alternative 1 (current choice): Allow user to search returning result in the order they are stored.
+Pros: Easy to implement.
+Cons: Less relevant result to user
+
+###### Alternative 2: Allow user to sort the search e.g. by Alphabetical order.
+Pros: More relevant result to user
+Cons: more difficult to implement.
 
 ## Product scope
 ### Target user profile
