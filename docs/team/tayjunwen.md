@@ -43,8 +43,9 @@ Also Collaborated & Worked together with the team on the remaining parts of the 
 
 ##### Contributions to the Developer Guide:
 
-Assisted to upload members UML diagram's and created Object and Class diagram to illustrate program makeup and flow for ```list``` and ```search``` function.
-Also Collaborated & Collaborated & Worked together with the team. Jiancheng consolidated the submission to teams repo.
+Assisted to upload members UML object diagram's, created description for the developer guide and created Class diagram to illustrate program for ```UI``` and ```Finder``` component.
+
+Also Collaborated & Collaborated & Worked together with the team for the rest of the items. Jiancheng consolidated the remaning submission to teams repo.
 
 ### Contributions to team-based tasks :
 
