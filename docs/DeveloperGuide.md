@@ -76,16 +76,17 @@ The ```search``` feature displays all items in the the ItLogger. It is facillate
 5. ```Search#searchOwner``` - searches all Issue in the ItLogger by owner listed
 
 The following sequence diagram shows how the undo operation works.
+![Image of SearchSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/search_seq_diag.jpg)
 
 ##### Design consideration:
 Aspect: Search can otherwise be implemented
 
 ###### Alternative 1 (current choice): Allow user to search returning result in the order they are stored.
-Pros: Easy to implement.
-Cons: Less relevant result to user
+Pros: Easy to implement. <br>
+Cons: Less relevant result to user.
 
 ###### Alternative 2: Allow user to sort the search e.g. by Alphabetical order.
-Pros: More relevant result to user
+Pros: More relevant result to user.<br>
 Cons: more difficult to implement.
 
 ## Product scope
