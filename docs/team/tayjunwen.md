@@ -43,7 +43,7 @@ Also Collaborated & Worked together with the team on the remaining parts of the 
 
 ##### Contributions to the Developer Guide:
 
-Assisted to upload members UML object diagram's, created description for the developer guide and created Class diagram to illustrate program for ```UI``` and ```Finder``` component.
+Assisted to upload members UML object diagram's, created description for the developer guide and created Class diagram to illustrate program for ```UI``` and ```Finder``` component. Added the implementation of ```search``` function and feature of ItLogger such as the description, sequence diagram & design consideration. 
 
 Also Collaborated & Collaborated & Worked together with the team for the rest of the items. Jiancheng consolidated the remaning submission to teams repo.
 
