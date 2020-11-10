@@ -75,7 +75,7 @@ The ```search``` feature displays all items in the the ItLogger. It is facillate
 4. ```Search#searchDeadline``` - searches all Issue in the ItLogger by deadline listed
 5. ```Search#searchOwner``` - searches all Issue in the ItLogger by owner listed
 
-The following sequence diagram shows how the undo operation works.
+The following sequence diagram shows how the Search operation works.
 ![Image of SearchSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/search_seq_diag.jpg)
 
 ##### Design consideration:
