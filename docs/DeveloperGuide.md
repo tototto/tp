@@ -1,10 +1,9 @@
 # Developer Guide
 
 ## Design
-//todo overview
 
-## Architechture
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
+### Architechture
+
 ![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/architecture.png)
 
 The Architecture Diagram given above explains the high-level design of the App. Given below is a quick overview of each component.
@@ -20,11 +19,12 @@ IssueList: Define the structure of each issue to track.
 
 Each of the six components,
 
-## How the architecture components interact with each other
+### How the architecture components interact with each other
 
-The Sequence Diagram below shows how the components interact with each other for the scenario where the user issues the command delete 1.
+The Sequence Diagram below shows how the components interact with each other for the scenario where the user issues the update command.
+![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/updateSequenceDiagram.png)
 
-## UI component
+### UI component
 
 ![Image of UI Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/interface.png)
 
@@ -32,7 +32,7 @@ The UI componenet is the handler of the user input and output result to the user
 
 Both InputHandler and Interface contains only static method, which will be utilize in all the other classes. But the majority of the method call was from the main class, ItLogger.
 
-## FINDER component
+### FINDER component
 
 ![Image of Finder Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/finder.png)
 
@@ -40,7 +40,7 @@ The FINDER component includes Search and Sort classes. It is used to provide an 
 Sort class is consist of API to sort the issuelist in given request with quick sort algorithm. It is called from view command with addon keyword to view the sorted list.
 
 
-## Storage Component
+### Storage Component
 
 ![Image of Storage Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/storage.png)
 
@@ -48,7 +48,7 @@ The Storage component loads a list of ItLogger Defects from a text file when the
 It also saves Defects to file upon program exit. It saves to format that is readable by the Parser class.
 
 
-## IssueList component
+### IssueList component
 
 The IssueList component is the container to save the data of defects during execution of program. It consist two classes, IssueList and Defects. Issuelist has a vector to store defects.  And the Defect class is the class of defects as what we defined. It contains the defect name, status, severity,date raised, deadline and owner.
 
@@ -62,14 +62,13 @@ The IssueList component:
 
 ![Image of IssueListComponentClassDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/IssueListComponent.png)
 
-## COMMONS component
+### COMMONS component
 
 The commons component are those classes used by multiple components are in the program, such as enum classes and the parser class.
 
 The parser class is mainly in charge of parse user's input and convert them to a workable format to the program. The enum classes are used to strict the keywords. 
 
 ## Implementation
-// take one user story as example to showcase how certain features are implemented. 
 
 Search Implementation
 
@@ -141,7 +140,28 @@ manage defects faster than a typical mouse/GUI driven app. Allows the user to be
 
 ## Instructions for manual testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+### Launch and Shutdown
 
-![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/updateSequenceDiagram.png)
+1. Initial launch
+    1. Download the jar file and copy into an empty folder
+    2. Use Command Prompt to run jar file with `java -jar` command.
+    3. type exit command to exit from the program.
+
+2. Re-launch the app by running `java -jar` command with Command Prompt.
+3. { more test cases …​ }
+
+### Adding a defect
+1. Add the Defect through following command:
+    1. add t/<TITLE> s/<STATUS> sv/<SEVERITY in integer from 0 to 10> dl/<DEADLINE in dd-mm-yyyy format> o/<OWNER>
+2. { more test cases …​ }
+ 
+### Updating a defect
+1. Enter the update mode for a defect:
+    1. update u/<TICKET in integer>
+2. When in update mode, update the title of the defect:
+    1. update t/<NEW TITLE>
+3. When in update mode, update the severity of the defect:
+    1. update sv/<NEW SEVERITY in integer from 0 to 10>
+4. { more test cases …​ }
+
 
