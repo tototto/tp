@@ -39,7 +39,13 @@ Both InputHandler and Interface contains only static method, which will be utili
 The FINDER component includes Search and Sort classes. It is used to provide an organised output based on the user desired output selection option.
 Sort class is consist of API to sort the issuelist in given request with quick sort algorithm. It is called from view command with addon keyword to view the sorted list.
 
-//todo STORAGE component
+
+## Storage Component
+
+![Image of Storage Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/storage.png)
+
+The Storage component loads a list of ItLogger Defects from a text file when the program starts up. It makes use of the Parser class to create a Defect object from a String.
+It also saves Defects to file upon program exit. It saves to format that is readable by the Parser class.
 
 
 ## IssueList component
