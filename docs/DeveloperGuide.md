@@ -22,11 +22,11 @@ Each of the six components,
 ### How the architecture components interact with each other
 
 The Sequence Diagram below shows how the components interact with each other for the scenario where the user issues the update command.
-![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/updateSequenceDiagram.png)
+![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/updateSequenceDiagram.png?raw=true)
 
 ### UI component
 
-![Image of UI Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/interface.png)
+![Image of UI Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/interface.png?raw=true)
 
 The UI componenet is the handler of the user input and output result to the user. It includes InputHandler Class which will deal with user input, and Interface Class which will handle all the console printing interaction. Project team have also store the information of help command inside Interface which will make the help command work when the program is compiled into the jar file.
 
@@ -34,7 +34,7 @@ Both InputHandler and Interface contains only static method, which will be utili
 
 ### FINDER component
 
-![Image of Finder Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/finder.png)
+![Image of Finder Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/finder.png?raw=true)
 
 The FINDER component includes Search and Sort classes. It is used to provide an organised output based on the user desired output selection option.
 Sort class is consist of API to sort the issuelist in given request with quick sort algorithm. It is called from view command with addon keyword to view the sorted list.
@@ -42,7 +42,7 @@ Sort class is consist of API to sort the issuelist in given request with quick s
 
 ### Storage Component
 
-![Image of Storage Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/storage.png)
+![Image of Storage Class Diagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/storage.png?raw=true)
 
 The Storage component loads a list of ItLogger Defects from a text file when the program starts up. It makes use of the Parser class to create a Defect object from a String.
 It also saves Defects to file upon program exit. It saves to format that is readable by the Parser class.
@@ -60,7 +60,7 @@ The IssueList component:
 * Able to get the whole IssueList itself 
 * Able to set/get all details of any specified defect
 
-![Image of IssueListComponentClassDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/IssueListComponent.png)
+![Image of IssueListComponentClassDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/IssueListComponent.png?raw=true)
 
 ### COMMONS component
 
@@ -81,7 +81,7 @@ The ```search``` feature displays all items in the the ItLogger. It is facillate
 5. ```Search#searchOwner``` - searches all Issue in the ItLogger by owner listed
 
 The following sequence diagram shows how the Search operation works.
-![Image of SearchSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/search_seq_diag.jpg)
+![Image of SearchSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/search_seq_diag.jpg?raw=true)
 
 ##### Design consideration:
 Aspect: Search can otherwise be implemented
