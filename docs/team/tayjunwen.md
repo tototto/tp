@@ -36,7 +36,7 @@ Implemented the following function:
 
 ### Contributions to documentation:
 
-##### User Guide:
+##### Contribution to the User Guide:
 
 Assisted to produce the Feature & Command Summary Section.
 Also Collaborated & Worked together with the team on the remaining parts of the UG. Jiancheng consolidated the submission to teams repo.
