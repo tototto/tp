@@ -148,12 +148,10 @@ manage defects faster than a typical mouse/GUI driven app. Allows the user to be
     3. type exit command to exit from the program.
 
 2. Re-launch the app by running `java -jar` command with Command Prompt.
-3. { more test cases …​ }
 
 ### Adding a defect
 1. Add the Defect through following command:
     1. add t/<TITLE> s/<STATUS> sv/<SEVERITY in integer from 0 to 10> dl/<DEADLINE in dd-mm-yyyy format> o/<OWNER>
-2. { more test cases …​ }
  
 ### Updating a defect
 1. Enter the update mode for a defect:
@@ -162,7 +160,6 @@ manage defects faster than a typical mouse/GUI driven app. Allows the user to be
     1. update t/<NEW TITLE>
 3. When in update mode, update the severity of the defect:
     1. update sv/<NEW SEVERITY in integer from 0 to 10>
-4. { more test cases …​ }
 
 ### Listing all Defects in the system
 1. Enter the command
