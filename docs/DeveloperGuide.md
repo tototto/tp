@@ -4,7 +4,7 @@
 
 ### Architechture
 
-![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/architecture.png)
+![Image of UpdateSequenceDiagram](https://github.com/AY2021S1-TIC4001-3/tp/blob/master/docs/Images/architecture.png?raw=true)
 
 The Architecture Diagram given above explains the high-level design of the App. Given below is a quick overview of each component.
 
