@@ -18,3 +18,5 @@ text-ui-test/EXPECTED-UNIX.TXT
 
 # All .log files
 *.log
+*.log.*
+*.log.*.*
