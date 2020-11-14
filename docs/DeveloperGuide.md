@@ -164,4 +164,25 @@ manage defects faster than a typical mouse/GUI driven app. Allows the user to be
     1. update sv/<NEW SEVERITY in integer from 0 to 10>
 4. { more test cases …​ }
 
+### Listing all Defects in the system
+1. Enter the command
+    1. List
+2. List of all Defects in the system will be listed in the order they were created.
 
+### Viewing a particular Defect in the system
+1. Enter the command
+    1. View /index. Eg:View 1
+2. The second Defect created will be shown on screen in details.
+
+### Delete a particular Defect in the system
+1. Enter the command
+    1. Delete d/index. Eg:Delete d/1
+2. The second Defect will be deleted.
+
+### Load a list of Defects into the progam upon lauch
+1. Program looks for and loads itlogger.txt
+2. If file is not found, no Defects will be preloaded. Program starts as per normal operation.
+
+### Save a list of Defects into itlogger.txt upon exit
+1. Saves all Defects into the itlogger.txt file when user enters the Exit command.
+2. If file does not exist, itlogger.txt will be created.
